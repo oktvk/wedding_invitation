@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            height: 100vh;
+            background-color: #f0f0f0;
+            color: black;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            min-width: 300px;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 15px;
+            animation: fadeIn 2s ease-in-out;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .page > div, .page > p, .page > h1, .page > h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cover .title h1 {
+            font-size: 2rem;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .cover .title p {
+            font-size: 1.2rem;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .invitation .card {
+            max-width: 300px;
+            height: 60%;
+            background-color: #f0f0f0;
+            border-radius: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 20px;
+            border: #000 2px solid;
+            animation: glow 2s infinite alternate;
+        }
+
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: darkgray;
+            background-image: url("goatjovstoji.jpg");
+            background-size: cover;
+            animation: spin 10s linear infinite;
+            box-shadow: 0 0 20px rgba(78, 27, 77, 0.5);
+        }
+        .circle2 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: darkgray;
+            background-image: url("goatjovstoji.jpg");
+            background-size: cover;
+            animation: spin 10s linear infinite;
+            box-shadow: 0 0 20px rgba(78, 27, 77, 0.5);
+        }
+
+        .line {
+            width: 150px;
+            height: 1px;
+            background-color: black;
+            margin: 10px 0;
+        }
+
+        .countdown {
+            font-size: 1.5rem;
+        }
+
+        .dark-mode-toggle {
+            position: relative;
+            width: 60px;
+            height: 34px;
+            background-color: #ccc;
+            border-radius: 34px;
+            cursor: pointer;
+            margin: 20px auto;
+            transition: background-color 0.3s;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .dark-mode-toggle::before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .dark-mode-toggle.active {
+            background-color: #007bff;
+        }
+
+        .dark-mode-toggle.active::before {
+            transform: translateX(26px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.872);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(202, 193, 200, 0.2);
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes buttonAppear {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .dark-mode .page {
+            background-color: #1f1f1f;
+            box-shadow: 0 0 20px rgba(103, 78, 100, 0.5);
+            box-shadow: 0 0 20px rgba(234, 168, 232, 0.5);
+        }
+
+        .dark-mode .card {
+            background-color: black;
+            color: white;
+        }
+
+        .dark-mode .line {
+            background-color: white;
+        }
+        .circle{
+            background-image: url(mario.png);
+        }
+        .circle2{
+            background-image: url(furina.png);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Dark Mode Toggle -->
+        <div class="dark-mode-toggle" id="darkModeToggle"></div>
+
+        <!-- Cover Page -->
+        <section class="page cover">
+            <div class="title">
+                <p>The Wedding of</p>
+                <h1>Mario & Furina</h1>
+                <p>tuesday, 25 February, 2025</p>
+            </div>
+            <div class="guest-name">
+                <p>To the esteemed guest,</p>
+                <p>Mr. SpongeBob SquarePants</p>
+            </div>
+        </section>
+
+        <!-- Invitation Page -->
+        <section class="page invitation">
+            <h2>The Beloved</h2>
+            <h1>Mario & Furina</h1>
+            <p>INVITE YOU TO CELEBRATE THEIR MERRIAGE</p>
+            <div class="card">
+                <div class="circle"></div>
+                <h1>Mario Nicholas Crishiansen S.Kom</h1>
+                <div class="line"></div>
+                <p>Shinkuro Chanomura</p>
+                <p>&</p>
+                <p>Himawari Sakurako</p>
+            </div>
+        </section>
+
+        <section class="page invitation">
+            <h2>The Beloved</h2>
+            <h1>Mario & Furina</h1>
+            <p>INVITE YOU TO CELEBRATE THEIR MERRIAGE</p>
+            <div class="card">
+                <div class="circle2"></div>
+                <h1>Furina de Fontaine</h1>
+                <div class="line"></div>
+                <p>unknown</p>
+                <p>&</p>
+                <p>unknown</p>
+            </div>
+        </section>
+
+        <!-- Closing Page with Countdown -->
+        <section class="page closing">
+            <h2>Countdown to the Event</h2>
+            <div id="countdown" class="countdown"></div>
+            <p>We are excited to celebrate this special day with you!</p>
+        </section>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date('february 25, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = "The event has started!";
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            this.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
